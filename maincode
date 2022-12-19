@@ -1,0 +1,481 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+class Package
+{
+protected:
+    string sendName;
+    string sendAddress1;
+    string sendAddress2;
+    string sendCity;
+    string sendState;
+    int sendZipCode;
+    string reciName;
+    string reciAddress1;
+    string reciAddress2;
+    string reciCity;
+    string reciState;
+    int reciZipCode;
+    float weight;
+    float costGram;
+    float totalCost;
+
+public:
+    Package()
+    {
+
+    }
+    Package(string sendName,string sendAddress1,string sendAddress2,string sendCity,string sendState,int sendZipCode,string reciName,string reciAddress1,string reciAddress2,string reciCity,string reciState,int reciZipCode)
+    {
+        this->sendName=sendName;
+        this->sendAddress1=sendAddress1;
+        this->sendAddress2=sendAddress2;
+        this->sendCity=sendCity;
+        this->sendState=sendState;
+        this->sendZipCode=sendZipCode;
+        this->reciName=reciName;
+        this->reciAddress1=reciAddress1;
+        this->reciAddress2=reciAddress2;
+        this->reciCity=reciCity;
+        this->reciState=reciState;
+        this->reciZipCode=reciZipCode;
+
+    }
+    void getSendDetails();
+    void getReciDetails();
+    void showDetails();
+    virtual int getinfo()
+    {
+    }
+    virtual int calculateCost()
+    {
+    }
+    virtual void Printinfo()
+    {
+    }
+    friend int customization(Package)
+    {
+    int choicee;
+    string bdayname;
+    string oname;
+    int bdayage;
+    char bdaysent[1000];
+    char andaysent[1000];
+    char odaysent[1000];
+    string m1name;
+    string m2name;
+    int mdate,mmonth,myear;
+    tin:
+    cout<<"How do you want to customize your package \n";
+    cout<<"This option is available only for normal day packages!\n";
+    cout<<"Your choices are :\n";
+    cout<<"For 1. Birthday\n";
+    cout<<"For 2. Anniversary\n";
+    cout<<"For 3. Others\n";
+    cout<<"\nEnter your Choice : ";
+    cin>>choicee;
+    if(choicee==1 || choicee==2 || choicee==3)
+    {
+    switch(choicee)
+    {
+    case 1:
+        cout<<"Enter the person's name :";
+        cin>>bdayname;
+        cout<<"Enter the age of the person :";
+        cin>>bdayage;
+        cout<<"\nWhen you finish entering your message , kindly specify a ^ symbol.";
+        cout<<"\n\nEnter your message here to the person :";
+        cin.getline(bdaysent,1000,'^');
+        cout<<"\nPerson's name :"<<bdayname;
+        cout<<"\nAge of the person :"<<bdayage;
+        cout<<"\nMessage to be written :"<<bdaysent;
+        cout<<"\n";
+        break;
+    case 2:
+        cout<<"Enter the first person's name :";
+        cin>>m1name;
+        cout<<"Enter the second person's name :";
+        cin>>m2name;
+        cout<<"Enter your Anniversary date :\n";
+        cout<<"Enter date :";
+        cin>>mdate;
+        cout<<"Enter month :";
+        cin>>mmonth;
+        cout<<"Enter year :";
+        cin>>myear;
+        cout<<"\nWhen you finish entering your message , kindly specify a ^ symbol.";
+        cout<<"\n\nEnter your message here to the person :";
+        cin.getline(andaysent,1000,'^');
+        cout<<"\nFirst name :"<<m1name;
+        cout<<"\nSecond name :"<<m2name;
+        cout<<"\nAnniversary date :"<<mdate<<"/"<<mmonth<<"/"<<myear<<endl;
+        cout<<"\nMessage to be written :"<<andaysent;
+        cout<<"\n";
+        break;
+    case 3:
+        cout<<"Enter the person's name :";
+        cin>>oname;
+        cout<<"\nWhen you finish entering your message , kindly specify a ^ symbol.";
+        cout<<"\n\nEnter your message here to the person :";
+        cin.getline(odaysent,1000,'^');
+        cout<<"\nPerson's name :"<<oname;
+        cout<<"\nMessage to be written :"<<odaysent;
+        cout<<"\n";
+    }
+    cout<<"\nWe do handmade customizations!\n";
+    }
+    else
+    {
+    cout<<"Invalid input.\nTry again!\n";
+    goto tin;
+    }
+}
+};
+void Package::getSendDetails()
+{
+    cout<<"SENDER DETAILS\n";
+    cout<<"Enter your Name :";
+    cin>>sendName;
+    cout<<"Enter your Address Line 1 (Number):";
+    cin>>sendAddress1;
+    cout<<"Enter your Address Line 2 (Street/Area):";
+    cin>>sendAddress2;
+    cout<<"Enter your City :";
+    cin>>sendCity;
+    cout<<"Enter your State :";
+    cin>>sendState;
+    cout<<"Enter the Zip code :";
+    cin>>sendZipCode;
+}
+
+void Package::getReciDetails()
+
+{   cout<<"\nRECIPIENT DETAILS\n";
+    cout<<"Enter the recipient's Name :";
+    cin>>reciName;
+    cout<<"Enter the recipient's Address Line 1 (Number):";
+    cin>>reciAddress1;
+    cout<<"Enter the recipient's Address Line 2(Street/Area):";
+    cin>>reciAddress2;
+    cout<<"Enter the recipient's City :";
+    cin>>reciCity;
+    cout<<"Enter the recipient's State :";
+    cin>>reciState;
+    cout<<"Enter the recipient's Zip code :";
+    cin>>reciZipCode;
+}
+
+void Package::showDetails()
+
+{   cout<<"\n\nSENDER DETAILS\n";
+    cout<<"\nSender'sName :"<<sendName;
+    cout<<"\nSender's Address Line 1(Number):"<<sendAddress1;
+    cout<<"\nSender's Address Line 2(Street/Area)"<<sendAddress2;
+    cout<<"\nSender's City :"<<sendCity;
+    cout<<"\nSender's State :"<<sendState;
+    cout<<"\nSender's Zip code :"<<sendZipCode;
+    cout<<"\n\nRECIPIENT DETAILS\n";
+    cout<<"\nRecipient's Name :"<<reciName;
+    cout<<"\nRecipient's Address Line 1(Number):"<<reciAddress1;
+    cout<<"\nRecipient's Address Line 2(Street/Area):"<<reciAddress2;
+    cout<<"\nRecipient's City :"<<reciCity;
+    cout<<"\nRecipient's State :"<<reciState;
+    cout<<"\nRecipient's Zip code :"<<reciZipCode;
+}
+
+class NDayPackage:public Package
+
+{
+private:
+    float fee;
+    float tax;
+
+public:
+  NDayPackage()
+  {
+      costGram=0.10;
+  }
+  friend void customization();
+  int getinfo()
+  {
+      cout<<"\nEnter the weight of the package you are sending in grams: ";
+      cin>>weight;
+      tax=weight*costGram*0.18;
+      return tax;
+  }
+  int calculateCost()
+  {
+      totalCost=100+tax+(weight*costGram);
+      return totalCost;
+  }
+  int calculateCostCust()
+  {
+      totalCost=100+tax+(weight*costGram)+200;
+      return totalCost;
+  }
+  void Printinfo()
+  {
+    cout<<"\nThe total cost for this normal delivery package : Rs. "<<totalCost;
+  }
+
+};
+class OvernightPackage:public Package
+{
+
+private:
+
+    float fee1;
+    float tax1;
+    float totalcostOvernight;
+public:
+  OvernightPackage()
+  { costGram=0.15;
+
+  }
+int getinfo()
+  {
+      cout<<"\n\nEnter the weight of the over night package in grams : ";
+      cin>>weight;
+      tax1=weight*costGram*0.18;
+      return tax1;
+  }
+int calculateCost()
+
+  {
+      totalcostOvernight=500+tax1+(weight*costGram);
+      totalCost=(0.25*totalcostOvernight)+totalCost;
+  }
+  void Printinfo()
+  {
+      cout<<"\nThe extra charges for overnight package : Rs. "<<totalCost;
+      cout<<"\nThe total cost for this overnight package : Rs. "<<totalcostOvernight;
+  }
+};
+class InternationalDelivery:public Package
+{
+private:
+    float fee2;
+    float tax2;
+    int choice;
+    float duties;
+    int c2;
+    float totalCost1;
+    float totalCost;
+    float internationalcharges;
+public:
+    InternationalDelivery()
+  {
+      costGram=0.25;
+  }
+int getinfo()
+  {
+    cout<<"Enter the weight  of the international Package in grams: ";
+      cin>>weight;
+      tax2=weight*costGram*0.18;
+      return tax2;
+  }
+  void getLocation()
+  {
+      min:
+      cout<<"Enter the location you want your package to be delivered :\n";
+      cout<<"Your choices are :\n";
+      cout<<"\n1. North America";
+      cout<<"\n2. South America";
+      cout<<"\n3. Australia or New Zealand";
+      cout<<"\n4. Europe";
+      cout<<"\n5. China";
+      cout<<"\n6. South Africa";
+      cout<<"\n7. Japan or Taiwan or South Korea";
+      cout<<"\n8. Russia";
+      cout<<"\n9. Singapore or Malaysia";
+      cout<<"\n10. Indonesia";
+      cout<<"\n11. Saudi Arabia";
+      cout<<"\n12. Any other Countries\n\n";
+      cout<<"Enter your choice : ";
+      cin>>choice;
+      if(choice<=0 && choice>=13)
+      {
+        cout<<"Invalid input.\nTry again.\n";
+        goto min;
+      }
+      switch(choice)
+      {
+      case 1:
+          duties=0.30;
+          break;
+      case 2:
+          duties=0.30;
+          break;
+      case 3:
+          duties=0.25;
+          break;
+      case 4:
+          duties=0.35;
+          break;
+      case 5:
+          duties=0.20;
+        break;
+      case 6:
+        duties=0.15;
+        break;
+      case 7:
+        duties=0.15;
+        break;
+      case 8:
+        duties=0.25;
+        break;
+      case 9:
+        duties=0.10;
+        break;
+      case 10:
+        duties=0.10;
+        break;
+      case 11:
+        duties=0.15;
+        break;
+      case 12:
+        duties=0.38;
+        break;
+      }
+  }
+  int isornot()
+  {
+      nim:
+      cout<<"Does the package consist of a \n";
+      cout<<"1. Solid\n";
+      cout<<"2. Liquid or semi-liquid\n";
+      cout<<"\nEnter your choice : ";
+      cin>>c2;
+      if(c2==1 || c2==2)
+      {
+            if(c2==1)
+            {
+                costGram=0.25;
+            }
+            else
+            {
+                costGram=0.40;
+            }
+      }
+      else
+      {
+          cout<<"Invalid input.\nTry again.\n";
+          goto nim;
+      }
+      return costGram;
+}
+int calculateCost()
+  {
+      internationalcharges=1000+tax2+(weight*costGram);
+      totalCost1=(duties*internationalcharges);
+      totalCost= internationalcharges+totalCost1;
+      return totalCost;
+  }
+  void Printinfo()
+  {
+      cout<<"\nThe total cost for duties is : Rs. " <<internationalcharges;
+      cout<<"\nThe total cost for this overseas package : Rs.  "<<totalCost;
+  }
+};
+int main()
+{
+    int x1;
+    InternationalDelivery in1;
+    NDayPackage od1;
+    OvernightPackage on1;
+    cout<<"\n\nWelcome to our Delivery Service !.\n\nWe have several options so that your package can be sent in any way you want !\n\n";
+    cout<<"\nWe have three options :  \n \n1.Normal day Delivery (For within India) \n2.Over-Night Delivery (For within India) \n3.Overseas Delivery (For outside India)";
+    cout<<"\n\nEnter your choice  : ";
+    cin>>x1;
+    if(x1==1)
+    {
+               int c;
+               Package *ptr1;
+               ptr1=&od1;
+               od1.getinfo();
+               hin:
+               cout<<"Do you want customized packages ?\n";
+               cout<<"If yes enter 1 or enter 0.\n";
+               cin>>c;
+               if(c==1 || c==0)
+               {
+                    if(c==1)
+                    {
+                        customization(od1);
+                        od1.calculateCostCust();
+                    }
+                    else
+                    {
+                        od1.calculateCost();
+                    }
+               }
+               else
+               {
+                   cout<<"Invalid input.\nTry again!\n";
+                   goto hin;
+               }
+               od1.Printinfo();
+    }
+    if(x1==2)
+    {
+               Package *ptr2;
+               ptr2=&on1;
+               on1.getinfo();
+               on1.calculateCost();
+               on1.Printinfo();
+
+    }
+    if(x1==3)
+    {
+               Package *ptr3;
+               ptr3=&in1;
+               in1.isornot();
+               in1.getLocation();
+               in1.getinfo();
+               in1.calculateCost();
+               in1.Printinfo();
+    }
+    Package p1;
+    p1.getReciDetails();
+    p1.getSendDetails();
+    p1.showDetails();
+    int x,y,z;
+    cout<<"\n\nDo you want to change the details?";
+    cout<<"\n\nEnter 1 for changing and any key to continue.";
+    cin>>x;
+    if(x==1)
+       {
+           cout<<"\n\nDo you want to change Sender's details (1) or Recipient's details (2)?";
+           cin>>y;
+           if(y==1)
+                p1.getSendDetails();
+           if(y==2)
+                p1.getReciDetails();
+       }
+    else
+       {
+           cout<<"\n\nThank you.";
+       }
+    cout<<"\n----------------------------------------------------------------------";
+    cout<<"\n\nYour final bill: ";
+    p1.showDetails();
+    cout<<"\n\nThe Charges for the delivery is : ";
+    if(x1==1)
+    {
+        od1.Printinfo();
+    }
+    if(x1==2)
+    {
+        on1.Printinfo();
+    }
+    if(x1==3)
+    {
+        in1.Printinfo();
+    }
+    cout<<endl;
+    cout<<"\n----------------------------------------------------------------------";
+    cout<<"\n\nThank you.\n\n\nYour Package will be delivered to the specified address within the specified number of days.";
+    cout<<endl;
+    cout<<"\n\nWe Hope that you'll use our service again.\n\n";
+    return 0;
+}
